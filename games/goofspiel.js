@@ -1,4 +1,4 @@
-let deck = new Array();
+let deck = [];
 let pointCards = [];
 const suits = ['spades', 'diamonds', 'clubs', 'hearts'];
 const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
@@ -16,7 +16,7 @@ const getDeck = () => {
 getDeck();
 
 const contestedDeck = () => {
-  for(var i = 0; i < deck.length; i++) {
+  for (var i = 0; i < deck.length; i++) {
     if (deck[i].Suit === 'clubs') {
       pointCards.push(deck[i]);
       deck.splice(i, 1);
@@ -26,19 +26,6 @@ const contestedDeck = () => {
 };
 
 contestedDeck();
-
-// const contestedDeck = deck.filter( (el) => {
-  // return el.Suit === 'clubs';
-// });
-
-// console.log('SUIT OF A CARD TYPE');
-// console.log(deck[0].Suit);
-
-// console.log('POINT CARDS');
-// console.log(pointCards);
-
-// console.log('FULL DECK');
-// console.log(deck);
 
 const shuffle = (cards) => {
   // for 1000 turns
@@ -55,5 +42,23 @@ const shuffle = (cards) => {
 
 shuffle(pointCards);
 
-console.log('SHUFFLED POINT CARDS');
-console.log(pointCards);
+let randomSuit = suits[Math.floor(Math.random() * suits.length)];
+
+const playerDeck = deck.filter((el) => {
+  if (el.Suit === randomSuit) {
+    return el;
+  }
+});
+
+console.log('PLAYER DECK');
+console.log(playerDeck);
+
+// console.log('FULL DECK');
+// console.log(deck);
+
+// console.log('POINT CARDS');
+// console.log(pointCards);
+
+
+// console.log('SHUFFLED POINT CARDS');
+// console.log(pointCards);

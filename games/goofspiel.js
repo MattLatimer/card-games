@@ -3,6 +3,12 @@ let pointCards = [];
 const suits = ['spades', 'diamonds', 'clubs', 'hearts'];
 const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
+// Used in contestedDeck and playerDeck to assign random suits
+const randomSuit = (suits) => {
+  let suit = suits[Math.floor(Math.random() * suits.length)];
+  return suit;
+};
+
 const getDeck = () => {
   for (let i = 0; i < suits.length; i++) {
     for (let x = 0; x < values.length; x++) {
@@ -15,10 +21,11 @@ const getDeck = () => {
 
 getDeck();
 
-// Separating out clubs as the suit to be bid on
+// Creating deck that players will bid on
 const contestedDeck = () => {
+  let pointDeck = randomSuit(suits);
   for (var i = 0; i < deck.length; i++) {
-    if (deck[i].Suit === 'clubs') {
+    if (deck[i].Suit === pointDeck) {
       pointCards.push(deck[i]);
       deck.splice(i, 1);
       i--; //decrement i IF we remove an item
@@ -47,9 +54,9 @@ shuffle(pointCards);
 
 // Cards assigned to each player
 const playerDeck = () => {
-  let randomSuit = suits[Math.floor(Math.random() * suits.length)];
+  let playerSuit = randomSuit(suits);
   const assignedSuit = deck.filter((el) => {
-    if (el.Suit === randomSuit) {
+    if (el.Suit === playerSuit) {
       return el;
     }
   });
@@ -62,18 +69,18 @@ const gameofSpiel = () => {
 }
 
 
-// const playerOne = playerDeck();
+const playerOne = playerDeck();
 
-// const playerTwo = playerDeck();
+const playerTwo = playerDeck();
 
 // console.log('PLAYER DECK');
 // console.log(playerDeck());
 
-// console.log('PLAYER ONE');
-// console.log(playerOne);
+console.log('PLAYER ONE');
+console.log(playerOne);
 
-// console.log('PLAYER TWO');
-// console.log(playerTwo);
+console.log('PLAYER TWO');
+console.log(playerTwo);
 
 
 // console.log('FULL DECK');

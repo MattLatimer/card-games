@@ -15,6 +15,7 @@ const getDeck = () => {
 
 getDeck();
 
+// Separating out clubs as the suit to be bid on
 const contestedDeck = () => {
   for (var i = 0; i < deck.length; i++) {
     if (deck[i].Suit === 'clubs') {
@@ -27,6 +28,7 @@ const contestedDeck = () => {
 
 contestedDeck();
 
+// Simple card shuffle
 const shuffle = (cards) => {
   // for 1000 turns
   // switch the values of two random cards
@@ -42,17 +44,37 @@ const shuffle = (cards) => {
 
 shuffle(pointCards);
 
-const randomSuit = suits[Math.floor(Math.random() * suits.length)];
 
-const playerDeck = deck.filter((el) => {
-  if (el.Suit === randomSuit) {
-    return el;
-  }
-});
+// Cards assigned to each player
+const playerDeck = () => {
+  let randomSuit = suits[Math.floor(Math.random() * suits.length)];
+  const assignedSuit = deck.filter((el) => {
+    if (el.Suit === randomSuit) {
+      return el;
+    }
+  });
+  return assignedSuit;
+};
 
 
-console.log('PLAYER DECK');
-console.log(playerDeck);
+const gameofSpiel = () => {
+// combine logic here
+}
+
+
+// const playerOne = playerDeck();
+
+// const playerTwo = playerDeck();
+
+// console.log('PLAYER DECK');
+// console.log(playerDeck());
+
+// console.log('PLAYER ONE');
+// console.log(playerOne);
+
+// console.log('PLAYER TWO');
+// console.log(playerTwo);
+
 
 // console.log('FULL DECK');
 // console.log(deck);
@@ -62,4 +84,4 @@ console.log(playerDeck);
 
 
 // console.log('SHUFFLED POINT CARDS');
-// console.log(pointCards);
+// console.log(pointCards);1

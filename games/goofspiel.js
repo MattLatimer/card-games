@@ -65,22 +65,30 @@ const playerDeck = () => {
 
 
 const gameofSpiel = () => {
-// combine logic here
-}
+// contestedDeck.foreach((card) => {
+  // if (card !== undefined) {
+    // draw next card from contestedDeck;
+    // let players bid;
+    // compare values, winner gets the card they bid on;
+    // add score to that player;
+    //  
+  // }
+// })
+};
 
 
-const playerOne = playerDeck();
+// const playerOne = playerDeck();
 
-const playerTwo = playerDeck();
+// const playerTwo = playerDeck();
 
 // console.log('PLAYER DECK');
 // console.log(playerDeck());
 
-console.log('PLAYER ONE');
-console.log(playerOne);
+// console.log('PLAYER ONE');
+// console.log(playerOne);
 
-console.log('PLAYER TWO');
-console.log(playerTwo);
+// console.log('PLAYER TWO');
+// console.log(playerTwo);
 
 
 // console.log('FULL DECK');

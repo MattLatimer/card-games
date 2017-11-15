@@ -42,13 +42,14 @@ const shuffle = (cards) => {
 
 shuffle(pointCards);
 
-let randomSuit = suits[Math.floor(Math.random() * suits.length)];
+const randomSuit = suits[Math.floor(Math.random() * suits.length)];
 
 const playerDeck = deck.filter((el) => {
   if (el.Suit === randomSuit) {
     return el;
   }
 });
+
 
 console.log('PLAYER DECK');
 console.log(playerDeck);
